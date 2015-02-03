@@ -1,6 +1,9 @@
 #include "Password.h"
 //fill in includes, don't forget namespaces
-
+#include "ReadFile.h"
+#include "WriteFile.h"
+#include "Keyboard.h"
+#include "Text.h"
 #include <iostream>
 using namespace std;
 
