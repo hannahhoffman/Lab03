@@ -17,7 +17,16 @@ Password::~Password() //destructor (there is work to do here, delete the individ
 }
 void Password::addWord(String* word) //add a word to the list of possible passwords
 {
-	
+	if (len == 0) // if this is the first word
+	{
+		len = word->length(); // set len to the length of the first 
+	}
+
+	else if (word->length() == len)// if the length of the word being added is the same as the length of the first word
+	{
+		viable_words-> add(word); // add to viable words list
+		all_words-> add(word); // add to all words list
+	}
 }
 void Password::guess(int try_password, int num_matches) //index of guessed word in the list of all words (1-based), number of matches reported by fallout 3, update viable passwords list
 {
