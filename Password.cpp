@@ -6,11 +6,14 @@ using namespace std;
 
 Password::Password() //constructor
 {
-	
+	viable_words = new ListArray<String>();
+	all_words = new ListArray<String>();
+	len=0;
 }
 Password::~Password() //destructor (there is work to do here, delete the individual words)
 {
-	
+	delete viable_words;
+	delete all_words;
 }
 void Password::addWord(String* word) //add a word to the list of possible passwords
 {
