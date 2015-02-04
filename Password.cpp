@@ -56,19 +56,28 @@ void Password::guess(int try_password, int num_matches) //index of guessed word 
 }
 int Password::getNumberOfPasswordsLeft() //returns the number of possible passwords remaining
 {
-	
+
 }
 void Password::displayViableWords() //display the current list of possible passwords
 {
-	
+	ListArrayIterator<String>* viable_iter = viable_words->iterator();
+
+	while (viable_iter -> hasNext())
+	{
+		String* cur_word= viable_iter-> next();
+		cur_word-> displayString();
+	}
 }
 int Password::bestGuess() //the best word in the original list to guess next (done for you)
 {
-	
+	//why is this still here
 }
 String* Password::getOriginalWord(int index) //get a word from the original list of all passwords, 1-based
 {
-	
+	// go to the original list and get the word
+	//String *word = ;
+	//return word;
+
 }
 
 int Password::bestGuess()
