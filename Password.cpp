@@ -1,5 +1,9 @@
 #include "Password.h"
+#include "ListArray.h"
+#include "ListArrayIterator.h"
 using CSC2110::ListArrayIterator;
+using CSC2110::ListArray;
+using CSC2110:: Password;
 
 #include <iostream>
 using namespace std;
@@ -68,10 +72,8 @@ void Password::displayViableWords() //display the current list of possible passw
 		cur_word-> displayString();
 	}
 }
-int Password::bestGuess() //the best word in the original list to guess next (done for you)
-{
-	//why is this still here
-}
+
+
 String* Password::getOriginalWord(int index) //get a word from the original list of all passwords, 1-based
 {
 	// go to the original list and get the word
