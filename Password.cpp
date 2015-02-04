@@ -4,6 +4,11 @@ using CSC2110::ListArrayIterator;
 #include <iostream>
 using namespace std;
 
+int Password::getNumMatches(String* curr_word, String* word_guess)
+{
+
+}
+
 Password::Password() //constructor
 {
 	viable_words = new ListArray<String>();
@@ -17,12 +22,12 @@ Password::~Password() //destructor (there is work to do here, delete the individ
 }
 void Password::addWord(String* word) //add a word to the list of possible passwords
 {
-	if (len == 0) // if this is the first word
+	if (len == 0) // if len is 0; ie this is the first word
 	{
 		len = word->length(); // set len to the length of the first 
 	}
 
-	else if (word->length() == len)// if the length of the word being added is the same as the length of the first word
+	if (word->length() == len)// if the length of the word being added is the same as the length of the first word
 	{
 		viable_words-> add(word); // add to viable words list
 		all_words-> add(word); // add to all words list
@@ -30,7 +35,24 @@ void Password::addWord(String* word) //add a word to the list of possible passwo
 }
 void Password::guess(int try_password, int num_matches) //index of guessed word in the list of all words (1-based), number of matches reported by fallout 3, update viable passwords list
 {
+	// if it's not the word, take it off viable words
+	// if getNumMatches!= num_matches remove from viable words
+
+	String *word_guess = getOriginalWord(try_password);
+	ListArrayIterator<String>* viable_iter = viable_words->iterator();
+	ListArray<String>* temp = new ListArray<String>();
+
+	while (viable_iter -> hasNext())
+	{
+		if (getNumMatches(viable_iter-> next(), word_guess) == num_matches)
+		{
+			temp-> add(viable_iter-> next());
+		}
+	}
 	
+	delete viable_words;
+	viable_words = temp;
+	//scope of temp expires and memory is deallocated automatically 
 }
 int Password::getNumberOfPasswordsLeft() //returns the number of possible passwords remaining
 {
