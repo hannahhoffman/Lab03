@@ -40,16 +40,23 @@ void Password::addWord(String* word) //add a word to the list of possible passwo
 		len = word->length(); // set len to the length of the first 
 	}
 
-	if (word->length() == len)// if the length of the word being added is the same as the length of the first word
+	else if (word->length() == len)// if the length of the word being added is the same as the length of the first word
 	{
 		viable_words-> add(word); // add to viable words list
 		all_words-> add(word); // add to all words list
+	}
+	//there may be better solutions rather than simply ignoring words that are typed incorrectly, maybe tell the user when a word is excluded?
+	else
+	{
+		cout<<"word ";
+		wor->displayString();
+		cout<<" was excluded from list of possible passwords. (length incorrect)\n";
 	}
 }
 void Password::guess(int try_password, int num_matches) //index of guessed word in the list of all words (1-based), number of matches reported by fallout 3, update viable passwords list
 {
 	// if it's not the word, take it off viable words
-	// if getNumMatches!= num_matches remove from viable words
+	// in other words; if getNumMatches!= num_matches remove from viable words
 
 	String *word_guess = getOriginalWord(try_password);
 	ListArrayIterator<String>* viable_iter = viable_words->iterator();
@@ -71,16 +78,21 @@ void Password::guess(int try_password, int num_matches) //index of guessed word 
 }
 int Password::getNumberOfPasswordsLeft() //returns the number of possible passwords remaining
 {
+	//too easy, return the size of the array that holds the possible passwords
 	return viable_words-> size();
 }
 
 void Password::displayViableWords() //display the current list of possible passwords
 {
+	//we need an iterator to pass through the list (it just works better that way)
 	ListArrayIterator<String>* viable_iter = viable_words->iterator();
-
+	
+	//while there are more words to display
 	while (viable_iter -> hasNext())
 	{
+		//get the word at the current iterator position
 		String* cur_word= viable_iter-> next();
+		//display that word, and then an endline character to make it look nice
 		cur_word-> displayString();
 		cout<<endl;
 	}
