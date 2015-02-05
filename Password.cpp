@@ -82,6 +82,7 @@ void Password::displayViableWords() //display the current list of possible passw
 	{
 		String* cur_word= viable_iter-> next();
 		cur_word-> displayString();
+		cout<<endl;
 	}
 }
 
