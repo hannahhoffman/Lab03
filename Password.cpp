@@ -49,7 +49,7 @@ void Password::addWord(String* word) //add a word to the list of possible passwo
 	else
 	{
 		cout<<"word ";
-		wor->displayString();
+		word->displayString();
 		cout<<" was excluded from list of possible passwords. (length incorrect)\n";
 	}
 }
