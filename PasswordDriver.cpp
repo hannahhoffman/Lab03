@@ -1,8 +1,13 @@
 #include "Password.h"
+<<<<<<< HEAD
 #include "ReadFile.h"
 #include "WriteFile.h"
 #include "Keyboard.h"
 #include "Text.h"
+=======
+//fill in includes, don't forget namespaces
+
+>>>>>>> 0e4a39cbd5400c5c480ca5c15aa85d7ded6f9032
 #include <iostream>
 using namespace std;
 

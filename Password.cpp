@@ -10,6 +10,15 @@ using namespace std;
 
 int Password::getNumMatches(String* curr_word, String* word_guess)
 {
+	int num_matches=0;
+	for (int i=0; i<len; i++)
+	{
+		if (curr_word-> charAt(i) == word_guess-> charAt(i))
+		{
+			num_matches++;
+		}
+	}
+	return num_matches;
 	//if (curr_word-> charAt(i) == word_guess-> charAt(i))
 }
 
