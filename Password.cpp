@@ -10,7 +10,7 @@ using namespace std;
 
 int Password::getNumMatches(String* curr_word, String* word_guess)
 {
-
+	//if (curr_word-> charAt(i) == word_guess-> charAt(i))
 }
 
 Password::Password() //constructor
@@ -56,12 +56,14 @@ void Password::guess(int try_password, int num_matches) //index of guessed word 
 	
 	delete viable_words;
 	viable_words = temp;
+	//delete iter????
 	//scope of temp expires and memory is deallocated automatically 
 }
 int Password::getNumberOfPasswordsLeft() //returns the number of possible passwords remaining
 {
-
+	return viable_words-> size();
 }
+
 void Password::displayViableWords() //display the current list of possible passwords
 {
 	ListArrayIterator<String>* viable_iter = viable_words->iterator();
@@ -77,8 +79,7 @@ void Password::displayViableWords() //display the current list of possible passw
 String* Password::getOriginalWord(int index) //get a word from the original list of all passwords, 1-based
 {
 	// go to the original list and get the word
-	//String *word = ;
-	//return word;
+	return all_words-> get(index);
 
 }
 
