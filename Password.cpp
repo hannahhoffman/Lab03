@@ -57,9 +57,10 @@ void Password::guess(int try_password, int num_matches) //index of guessed word 
 
 	while (viable_iter -> hasNext())
 	{
-		if (getNumMatches(viable_iter-> next(), word_guess) == num_matches)
+		String* word_check =viable_iter-> next();
+		if (getNumMatches(word_check, word_guess) == num_matches)
 		{
-			temp-> add(viable_iter-> next());
+			temp-> add(word_check);
 		}
 	}
 	
