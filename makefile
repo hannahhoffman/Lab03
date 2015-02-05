@@ -13,9 +13,10 @@ LIBS = (-lCSC2110 for libCSC2110.a)
 COMPILE = $(CC) $(INC_DIRS) -c
 LINK = $(CC) $(LIB_DIRS) -o
 
-Password.o:		Password.h Password.cpp
-				$(COMPILE) Password.cpp
 all: Project
 
 Project: 		$(FILES)
-			$(LINK) $(EXECUTABLE) $(FILES) $(LIBS)
+				$(LINK) $(EXECUTABLE) $(FILES) $(LIBS)
+				
+Password.o:		Password.h Password.cpp
+				$(COMPILE) Password.cpp
