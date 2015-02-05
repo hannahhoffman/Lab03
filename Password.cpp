@@ -10,11 +10,14 @@ using namespace std;
 
 int Password::getNumMatches(String* curr_word, String* word_guess)
 {
+	//counter for number of matches that have been found
 	int num_matches=0;
 	for (int i=0; i<len; i++)
 	{
+		//iterate through each letter of the words and check each character (position specific)
 		if (curr_word-> charAt(i) == word_guess-> charAt(i))
 		{
+			//if we find a match increment the counter
 			num_matches++;
 		}
 	}
